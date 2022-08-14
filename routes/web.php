@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\gestion_event;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('formulaire');
-});
+Route::get('/',[gestion_event::class,"home"])->name("home");
+Route::get('/event',[gestion_event::class,"vue"])->name("vue");
+Route::post('/',[gestion_event::class,"save"]);
